@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-int linear_search(std::string string_data_set,int element)
+int linear_search(std::vector<std::string> string_data_set,std::string element)
 {
     //For loop goes through every element in the data set and checks if it equals the desired string
     //Has a time complexity of O(n)
@@ -16,13 +16,13 @@ int linear_search(std::string string_data_set,int element)
     return -1;
 }
 
-int binary_search(std::string string_data_set, int element)
+int binary_search(std::vector<std::string>string_data_set, std::string element)
 {
     //Binary search keeps cutting the search area in half and checking if the middle value equals the desired string
     //Has a time complexity of O(logn)
 
     int low = 0;
-    int high = string_data_set.length() - 1;
+    int high = string_data_set.size() - 1;
     while(low<=high)
     {
         //Keeps recalculating the middle index and making sure it's an integer
@@ -41,27 +41,27 @@ int binary_search(std::string string_data_set, int element)
 
 int main()
 {
-    std::vector<std::string> test = StringData.get_data();
+    std::vector<std::string> test = getStringData();
 
     //Linear method for searching for "not_here"
     std::cout << "Finding not_here using the Linear Search algorithm\n";
 
-    long long start = StringData.systemTimeNanoSeconds();
+    long long start = systemTimeNanoseconds();
     int location = linear_search(test, "not_here");
-    long long end = StringData.systemTimeNanoSeconds();
+    long long end = systemTimeNanoseconds();
 
     //Print capture time
     if (location == -1)
-        std::cout<< "not_here cannot be found, and it took', end - start,'seconds.\n";
+        std::cout<< "not_here cannot be found, and it took"<< end - start<<"seconds.\n";
     else
-        std::cout<< "not_here was found at"<<location<<", and it took',"<< end - start<< "seconds.\n";
+        std::cout<< "not_here was found at"<<location<<", and it took,"<< end - start<< "seconds.\n";
 
     //Binary method for searching for "not_here
     std::cout<< "Finding not_here using the Binary Search algorithm";
 
-    start = StringData.systemTimeNanoSeconds();
+    start = systemTimeNanoseconds();
     location = binary_search(test, "not_here");
-    end = StringData.systemTimeNanoSeconds();
+    end = systemTimeNanoseconds();
     //Print capture time
     if (location == -1)
         std::cout<< "not_here cannot be found, and it took', end - start,'seconds.\n";
@@ -71,52 +71,52 @@ int main()
     //Linear method for searching for "mzzzz"
     std::cout<< "Finding mzzzz using the Linear Search algorithm";
 
-    start = StringData.systemTimeNanoSeconds();
+    start = systemTimeNanoseconds();
     location = linear_search(test, "mzzzz");
-    end = StringData.systemTimeNanoSeconds();
+    end = systemTimeNanoseconds();
     //Print capture time
     if (location == -1)
-        std::cout<<"mzzzz cannot be found, and it took"<< end - start<<"seconds.\n");
+        std::cout<<"mzzzz cannot be found, and it took"<< end - start<<"seconds.\n";
     else
-        std::cout<<"mzzzz was found at"<<location<<" and it took"<< end - start<< "seconds.\n");
+        std::cout<<"mzzzz was found at"<<location<<" and it took"<< end - start<< "seconds.\n";
 
     //Binary search method to find "mzzz" in the data set
     std::cout<<"Finding mzzzz using the Binary Search algorithm";
 
-    start = StringData.systemTimeNanoSeconds();
+    start = systemTimeNanoseconds();
     location = binary_search(test, "mzzzz");
-    end = StringData.systemTimeNanoSeconds();
+    end = systemTimeNanoseconds();
 
     //Print capture time
     if (location == -1)
-        std::cout << "mzzzz cannot be found, and it took"<< end - start<< "seconds.\n";
+        std::cout << "mzzzz cannot be found, and it took "<< end - start<< " seconds.\n";
     else
-        std::cout << "mzzzz was found at" << location<<" and it took"<< end - start << "seconds.\n";
+        std::cout << "mzzzz was found at" << location<<" and it took "<< end - start << " seconds.\n";
 
     //Linear Search algorithm to find "aaaa" in the data set
     std::cout <<"Finding aaaaa using the Linear Search algorithm";
 
-    start = StringData.systemTimeNanoSeconds();
+    start = systemTimeNanoseconds();
     location = linear_search(test, "aaaaa");
-    end = StringData.systemTimeNanoSeconds();
+    end = systemTimeNanoseconds();
     //Print capture time
 
     if (location == -1)
-        std::cout<<"aaaaa cannot be found, and it took"<< end - start<< "seconds.\n";
+        std::cout<<"aaaaa cannot be found, and it took "<< end - start<< " seconds.\n";
     else
-        std::cout<<"aaaaa was found at"<<location<<" and it took"<< end - start<< "seconds.\n";
+        std::cout<<"aaaaa was found at "<<location<<" and it took "<< end - start<< " seconds.\n";
 
     //Binary Search algorithm to find "aaaa" in the data set
     std::cout<< "Finding aaaaa using the Binary Search algorithm";
 
-    start = StringData.systemTimeNanoSeconds();
+    start = systemTimeNanoseconds();
     location = binary_search(test, "aaaaa");
-    end = StringData.systemTimeNanoSeconds();
+    end = systemTimeNanoseconds();
     //Print capture time
     if (location == -1)
-        std::cout<<"aaaaa cannot be found, and it took"<< end - start<< "seconds.\n";
+        std::cout<<"aaaaa cannot be found, and it took "<< end - start<< " seconds.\n";
     else
-        std::cout<<"aaaaa was found at"<<location<<"and it took"<< end - start<< "seconds.\n";
+        std::cout<<"aaaaa was found at "<<location<<" and it took "<< end - start<< " seconds.\n";
 
     return 0;
 }
