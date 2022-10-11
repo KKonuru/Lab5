@@ -1,9 +1,12 @@
 #include <iostream>
 #include "StringData.h"
+#include <string>
+#include <vector>
+
 using namespace std;
 
-int linear_search(string container[], string element) {
-    for (int i = 0; i <= sizeof(container); i++) {
+int linear_search(vector<string> container, string element) {
+    for (int i = 0; i <= container.size(); i++) {
         if (container[i] == element) {
             return i;
         } else
@@ -13,12 +16,12 @@ int linear_search(string container[], string element) {
     return 0;
 }
 
-int binary_search(string container[], string element) {
+int binary_search(vector<string> container, string element) {
     int mid = 0;
     int low = 0;
-    int high = sizeof(container) - 1;
+    int high = container.size() - 1;
     while (high >= low) {
-        mid = (high + low) // 2;
+        mid = (high + low) / 2;
         if (container[mid] < element) {
             low = mid + 1;
         }
@@ -32,21 +35,21 @@ int binary_search(string container[], string element) {
 }
 int main() {
     cout << "Linear search for ""not_here"" is being tested.";
-    int t1 = chrono::system_clock::now()
-    cout << (linear_search(Stringdata.get_data(), "not_here"));
-    int t2 = Stringdata.systemTimeNanoseconds();
+    long long t1 = systemTimeNanoseconds();
+    cout << (linear_search(getStringData(), "not_here"));
+    long long t2 = systemTimeNanoseconds();
     cout << (t2 - t1)
 
     cout << "Binary search for ""not_here"" is being tested.";
-    int t3 = Stringdata.systemTimeNanoseconds();
-    cout << (binary_search(stringdata.get_data(), "not_here"));
-    int t4 = Stringdata.systemTimeNanoseconds();
+    long long t3 =  systemTimeNanoseconds();
+    cout << (binary_search(getStringData(), "not_here"));
+    long long t4 =  systemTimeNanoseconds();
     cout << (t4 - t3);
 
     cout << "Linear search for ""mzzzz"" is being tested.";
-    int t5 = Stringdata.systemTimeNanoseconds();
-    cout << (linear_search(stringdata.get_data(), "mzzzz"));
-    int t6 =  Stringdata.systemTimeNanoseconds();
+    long long t5 =  systemTimeNanoseconds();
+    cout << (linear_search(getStringData(), "mzzzz"));
+    long long t6 =   systemTimeNanoseconds();
     cout << (t6 - t5)
 
     return 0;
